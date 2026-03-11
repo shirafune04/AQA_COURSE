@@ -24,7 +24,6 @@ class PostmanEchoRequestMethodsTest {
                 .contentType(ContentType.JSON)
                 .extract();
 
-        // ИСПРАВЛЕНО: JUnit assert'ы вместо Hamcrest matchers
         assertEquals("bar1", response.path("args.foo1"));
         assertEquals("bar2", response.path("args.foo2"));
         assertEquals("https://postman-echo.com/get?foo1=bar1&foo2=bar2",
@@ -121,7 +120,6 @@ class PostmanEchoRequestMethodsTest {
                 .contentType(ContentType.JSON)
                 .extract();
 
-        // ИСПРАВЛЕНО: JUnit assert'ы
         assertEquals(requestBody, response.path("data"));
         assertEquals("https://postman-echo.com/delete", response.path("url"));
     }
