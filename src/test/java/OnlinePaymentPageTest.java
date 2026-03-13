@@ -11,6 +11,7 @@ class MtsOnlinePaymentTest {
 
     private WebDriver driver;
     private WebDriverWait wait;
+    private OnlinePaymentPage paymentPage;
 
     @BeforeEach
     public void setUp() {
@@ -58,6 +59,11 @@ class MtsOnlinePaymentTest {
         wait.until(ExpectedConditions.not(
                 ExpectedConditions.urlToBe(originalUrl)));
         assertNotEquals(originalUrl, driver.getCurrentUrl());
+    }
+    @Test
+    public void testLabelsForServicesTabs() {
+        paymentPage.selectServicesTab();
+        assertNotNull(paymentPage.getPhon);
     }
 
     @Test

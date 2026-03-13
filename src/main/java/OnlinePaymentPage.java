@@ -36,11 +36,17 @@ public class OnlinePaymentPage {
     @FindBy(xpath = "/button[contains(text(),'Задолженность')]")
     private WebElement debtTab;
 
+    @FindBy(xpath = "//span[contains(text(),'+375'")
+    private WebElement phonePrefix;
+
     @FindBy(id = "connection-phone")
     private WebElement phoneInput;
 
     @FindBy(id = "connection-sum")
     private WebElement sumInput;
+
+    @FindBy(xpath = "//span[contains(text(),'Руб'")
+    private WebElement sumCurrency;
 
     @FindBy(id = "connection-email")
     private WebElement emailInput;
@@ -82,6 +88,12 @@ public class OnlinePaymentPage {
     }
     public void fillSum() {
         wait.until(ExpectedConditions.visibilityOf(sumInput)).sendKeys();
+    }
+    public String getPhonePrefix() {
+        return wait.until(ExpectedConditions.visibilityOf(phonePrefix)).getText();
+    }
+    public String getSumCurrency() {
+        return wait.until(ExpectedConditions.visibilityOf(sumCurrency)).getText();
     }
 
     public void clickContinueButton() {
