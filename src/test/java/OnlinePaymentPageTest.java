@@ -63,7 +63,7 @@ class MtsOnlinePaymentTest {
     @Test
     public void testLabelsForServicesTabs() {
         paymentPage.selectServicesTab();
-        assertNotNull(paymentPage.getPhon);
+        assertNotNull(paymentPage.getPhoneLabel);
     }
 
     @Test
