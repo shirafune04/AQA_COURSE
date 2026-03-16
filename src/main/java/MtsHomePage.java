@@ -1,8 +1,6 @@
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.*;
 import org.openqa.selenium.support.ui.*;
-
-import java.time.Duration;
 import java.util.List;
 
 public class MtsHomePage extends BasePage {
@@ -27,10 +25,7 @@ public class MtsHomePage extends BasePage {
             for (WebElement item : items) {
                 if (item.getText().contains(tabName)) {
                     item.click();
-                    break;
-                }
-            }
-
+                    break;} }
             Thread.sleep(500);
 
         } catch (Exception e) {
@@ -55,7 +50,7 @@ public class MtsHomePage extends BasePage {
         driver.findElement(By.id("connection-sum")).sendKeys(amount);
         driver.findElement(By.id("connection-email")).sendKeys(email);
     }
-    public PaymentFrame clickContinue() {
+    public PaymentFrame clickContinue() throws InterruptedException {
         continueBtn.click();
         return new PaymentFrame(driver);
     }

@@ -16,6 +16,6 @@ public class BasePage {
     public void scrollToBlock() {
         WebElement block = driver.findElement(By.xpath("//h2[contains(text(),'Онлайн пополнение')]"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", block);
-        try { Thread.sleep(1000); } catch (Exception e) {}
+        try { Thread.sleep(500); } catch (Exception e) {}
     }
 }

@@ -41,27 +41,17 @@ class MtsPaymentTest {
             String amount = homePage.getAmountPlaceholder();
             String email = homePage.getEmailPlaceholder();
 
-            assertTrue(phone.length() > 0);
-            assertTrue(amount.length() > 0);
-            assertTrue(email.length() > 0);
+            assertFalse(phone.isEmpty());
+            assertFalse(amount.isEmpty());
+            assertFalse(email.isEmpty());
         }
     }
     @Test
-    void testPaymentFrame() {
+    void testPaymentFrame() throws InterruptedException {
         homePage.scrollToBlock();
         homePage.selectTab("Услуги связи");
         homePage.fillForm("297777777", "100", "katy@mail.com");
 
         PaymentFrame frame = homePage.clickContinue();
-
-        // Просто выводим всё что нашли
-        System.out.println("Сумма: " + frame.getTotalAmount());
-        System.out.println("Кнопка: " + frame.getButtonAmount());
-        System.out.println("Телефон: " + frame.getPhoneNumber());
-
-        // Проверяем поля
-        System.out.println("Номер карты: " + frame.hasField("Номер карты"));
-        System.out.println("CVC: " + frame.hasField("CVC"));
-        System.out.println("Иконки: " + frame.hasIcons());
     }
 }
